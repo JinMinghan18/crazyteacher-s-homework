@@ -39,45 +39,36 @@ Vec Vec::operator+(const Vec & x)
 	}
 	return v1;
 }
-Vec Vec::operator-(const Vec& x)
-{
+Vec Vec::operator-(const Vec& x){
 	const Vec *miner,*maxer;
-	if(size<=x.size)
-	{
+	if(size<=x.size){
 		miner = this;
 		maxer = &x; 
 	}
-	else
-	{
+	else{
 		miner = &x;
 		maxer = this;
 	}
 	Vec v1(miner->size);
-	for(int i=0;i<=miner->size;i++)
-	{
+	for(int i=0;i<=miner->size;i++){
 		v1.a[i] = miner->a[i] - maxer->a[i]; 
 	}
 	return v1;
 }
-Vec &Vec::operator=(const Vec& x)
-{
+Vec &Vec::operator=(const Vec& x){
 	size = x.size;
 	delete[] a;
 	this->a = new int[x.size];
-	for(int i=0;i<size;i++)
-	{
+	for(int i=0;i<size;i++){
 		a[i] = x.a[i];
 	}
 }
-int  &Vec::operator[](int idx)
-{
+int  &Vec::operator[](int idx){
 	return a[idx];
 }
-void Vec::print()
-{
+void Vec::print(){
 	cout<<"(";
-	for(int i=0;i<size;i++)
-	{
+	for(int i=0;i<size;i++){
 		cout<<a[i];
 		if(i<size-1)
 			cout<<",";
