@@ -1,31 +1,33 @@
 #include<iostream>
+#include<string>
+#include<algorithm>
+#include<cmath>
+#include<stack>
+#include<sstream>
 using namespace std;
 int main()
 {
-	int n;
-	int i;
-	int* p=new int [20];
-	p[0]=1;
-	for(i=1;i<20;i++)
-	p[i]=p[i-1]*2;
-	for(;cin>>n;)
+	string s; getline(cin, s);
+	s = s + ' ';
+	for (int i = 0; i < s.length(); i++)
+		if (s[i] >= 'A'&&s[i] <= 'Z')
+			s[i] += 32;
+	for (string s1; getline(cin, s1);)
 	{
-		int* q=new int [20];
-		int j=19;
-		int m=n;
-		i=19;
-		int k;
-		for(;m>0;j--)
+		for (int i = 0; i < s1.length(); i++)
+			if (s1[i] >= 'A'&&s1[i] <= 'Z')
+				s1[i] += 32;
+		int count = 0;
+		istringstream sin(s1);
+		for (string t; sin >> t;)
 		{
-			for(;i>=0;i--)
-			if(m/p[i]==1){m=m-p[i];q[j]=p[i];k=i;break;}
+			if (t.length()>1&&s.find(t+' ')!=string::npos)
+				count += 2;
+			else
+				count += t.length();
+			count++;
+			t.clear();
 		}
-		double a=20;
-		cout<<n<<':'<<endl;
-		for(i=j+1;i<20;i++)
-		cout<<"  "<<q[i]/a<<"kg"<<endl;
-		delete [] q;
+		cout << count  << endl;
 	}
-	delete [] p;
-	return 0;
 }
