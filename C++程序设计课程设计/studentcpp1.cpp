@@ -1,33 +1,51 @@
 #include <iostream>
 #include <fstream>
+#include <map>
 #include "student.h"
 using namespace std;
-void get_info()
+void student::get_info()
 {
-	cout<<"请输入录入的学生数：";
-	int num;
-	cin>>num;
-	cout<<"请输入"<<num<<"位同学的信息\n";
-	student a[10000];
-	for(int i = 0;i < num;i++ )
+		
+		get_name();
+		
+		get_id(); 
+		
+		get_time();
+		
+		get_order();
+		
+		get_classname();
+		
+		get_abstype();	
+}
+void student::modify()
+{	
+	cout<<"请重新输入想要更改信息\n若想删除请全部输入0\n";
+	get_name();
+	get_id(); 
+	get_time();
+	get_order();
+	get_classname();
+	get_abstype();
+}
+int student::check(int i,int d,int o)
+{
+	if(id == i && d == date && o == order)
+	return 1;
+	else return 0;
+}
+void student::search(int n)
+{
+	if(id == n)
 	{
-		cout<<"姓名：" ;
-		a[i].get_name();
-		cout<<"\n学号："; 
-		a[i].get_id(); 
-		cout<<"\n缺课时间："; 
-		a[i].get_time();
-		cout<<"\n课时：" ;
-		a[i].get_order();
-		cout<<"\n课程名称："; 
-		a[i].get_classname();
-		cout<<"\n缺课类型：";
-		a[i].get_abstype();	
+		cout<<"姓名: "<<name<<" "
+			<<"学号: "<<id<<" "
+			<<"缺课时间: "<<date<<" "
+			<<"课时: "<<order<<" "
+			<<"缺课类型: "<<abstype<<endl;
 	}
 }
-void modify()
-{	
-	
-}
+
+
 
 

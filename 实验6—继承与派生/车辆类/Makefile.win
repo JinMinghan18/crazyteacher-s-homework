@@ -1,0 +1,31 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = vehiclecpp2.o vehiclecpp1.o
+LINKOBJ  = vehiclecpp2.o vehiclecpp1.o
+LIBS     = -L"F:/Dev-Cpp/MinGW64/lib" -L"F:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -pg -g3
+INCS     = -I"F:/Dev-Cpp/MinGW64/include" -I"F:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"F:/Dev-Cpp/MinGW64/include" -I"F:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"F:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 车辆类Vehicle.exe
+CXXFLAGS = $(CXXINCS) -pg -g3
+CFLAGS   = $(INCS) -pg -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+vehiclecpp2.o: vehiclecpp2.cpp
+	$(CPP) -c vehiclecpp2.cpp -o vehiclecpp2.o $(CXXFLAGS)
+
+vehiclecpp1.o: vehiclecpp1.cpp
+	$(CPP) -c vehiclecpp1.cpp -o vehiclecpp1.o $(CXXFLAGS)
