@@ -19,6 +19,7 @@ int main()
 		if(i == 4)	break;
 		else if(i == 1)
 		{
+			cout<<"学生管理系统\n";
 			string name;
 			string id;
 			double time;
@@ -40,6 +41,7 @@ int main()
 		}
 		else if(i == 2)
 		{
+			cout<<"老师管理系统\n";
 			string name;
 			string id;
 			double time;
@@ -65,6 +67,7 @@ int main()
 		}
 		else if(i == 3)
 		{
+			cout<<"职工管理系统\n";
 			string name;
 			string id;
 			double time;
@@ -72,7 +75,7 @@ int main()
 			double s;
 			cout<<"请输入职工姓名:";
 			cin>>name;
-			cout<<"\n请输入职工id:" ;
+			cout<<"\n请输入职工id:";
 			cin>>id;
 			cout<<"\n请输入职工工作时间";
 			cin>>time;

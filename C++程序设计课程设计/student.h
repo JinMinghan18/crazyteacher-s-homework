@@ -43,7 +43,7 @@ class student
 		{
 			return name;
 		} 
-		int check_id()
+		long long check_id()
 		{
 			return id;
 		} 
@@ -63,13 +63,37 @@ class student
 		{
 			return abstype;
 		} 		
+		void chuanru_name(string n)
+		{
+			name = n;
+		}
+		void chuanru_id(long long i)
+		{
+			id = i;
+		}
+		void chuanru_date(int dat)
+		{
+			date = dat;
+		}
+		void chuanru_order(int orde)
+		{
+			order = orde;
+		}
+		void chuanru_classname(string cla)
+		{
+			classname = cla;
+		}
+		void chuanru_abstype(string abs)
+		{
+			abstype = abs;
+		}
 		void get_info();
 		void modify();
-		void search(int n);
-		int check(int id,int date,int order);
+		void search(long long n);
+		int check(long long id,int date,int order);
 	private:
 		string name;//姓名 
-		int id;//学号 
+		long long id;//学号 
 		int date; //缺课日期 
 		int order; //第几节课 
 		string classname; //课程名称 

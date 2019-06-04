@@ -27,7 +27,7 @@ class Cat: public Felid
 		{
 			cout<<"Cat destructor."<<endl; 
 		}
-		void sound() const
+		virtual void sound() const
 		{ 
 			cout<<"Miaow !"<<endl; 
 		}
@@ -43,7 +43,7 @@ class Leopard: public Felid
 		{ 
 			cout<<"Leopard destructor."<<endl; 
 		}
-		void sound() const
+		virtual void sound() const
 		{ 
 			cout<<"Howl !"<<endl; 
 		}
