@@ -16,13 +16,13 @@ class student
 		}
 		void get_id()
 		{
-			cout<<"\n学号："; 
+			cout<<"\n学号：（浙工大计算机专业学号）"; 
 			cin>>id;
 		}
 		void get_time()
 		{
-			cout<<"\n缺课时间："; 
-			cin>>date; 
+			cout<<"\n缺课时间：(例如1999 11 11)"; 
+			cin>>year>>month>>day; 
 		} 
 		void get_order()
 		{
@@ -47,10 +47,18 @@ class student
 		{
 			return id;
 		} 
-		int check_time()
+		int check_year()
 		{
-			return date;
+			return year;
 		} 
+		int check_month()
+		{
+			return month;
+		}
+		int check_day()
+		{
+			return day;
+		}
 		int check_order()
 		{
 			return order;
@@ -71,9 +79,11 @@ class student
 		{
 			id = i;
 		}
-		void chuanru_date(int dat)
+		void chuanru_date(int y,int m,int d)
 		{
-			date = dat;
+			year = y;
+			month = m;
+			day = d;
 		}
 		void chuanru_order(int orde)
 		{
@@ -90,11 +100,11 @@ class student
 		void get_info();
 		void modify();
 		void search(long long n);
-		int check(long long id,int date,int order);
+		int check(long long id,int year,int month,int day,int order);
 	private:
 		string name;//姓名 
 		long long id;//学号 
-		int date; //缺课日期 
+		int year,month,day; //缺课日期 
 		int order; //第几节课 
 		string classname; //课程名称 
 		string abstype;//缺课类型（迟到、早退、请假、旷课） 

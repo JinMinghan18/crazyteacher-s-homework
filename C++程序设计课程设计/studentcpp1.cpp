@@ -20,7 +20,7 @@ void student::get_info()
 }
 void student::modify()
 {	
-	cout<<"请重新输入想要更改信息\n若想删除请全部输入0\n";
+	cout<<"请重新输入想要更改信息\n";
 	get_name();
 	get_id(); 
 	get_time();
@@ -28,9 +28,9 @@ void student::modify()
 	get_classname();
 	get_abstype();
 }
-int student::check(long long i,int d,int o)
+int student::check(long long i,int y,int m,int d,int o)
 {
-	if(id == i && d == date && o == order)
+	if(id == i && y == year&&m == month &&d == day && o == order)
 	return 1;
 	else return 0;
 }
@@ -40,7 +40,7 @@ void student::search(long long n)
 	{
 		cout<<"姓名: "<<name<<" "
 			<<"学号: "<<id<<" "
-			<<"缺课时间: "<<date<<" "
+			<<"缺课时间: "<<year<<" "<<month<<" "<<day<<" "
 			<<"课时: "<<order<<" "
 			<<"缺课类型: "<<abstype<<endl;
 	}
