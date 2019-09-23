@@ -132,6 +132,8 @@ int main()
 				{
 					cout<<"欢迎进入系统";
 					cout<<endl<<endl;
+					system("pause");
+					system("cls");
 					cout<<"/---------------------------------------------------------------------------------------/\n" ;
 				}
 				
@@ -153,6 +155,7 @@ int main()
 		cerr<<"管理员密码错误！\n";
 		return 0;
 	}
+	
 	
 	//管理界面 
 	int cnt=0;
@@ -187,7 +190,7 @@ int main()
 		{
 			case 0:return 0; 
 			
-			case 1:
+			case 1://录入功能 
 			{
 				cout<<"/---------------------------------------------------------------------------------------/\n" ;
 				cout<<"请选择\n1、初次录入\n2、补录\n";
@@ -259,7 +262,7 @@ int main()
 							outfile<<a[j].check_name()<<" "<<a[j].check_id()<<" "<<a[j].check_year()<<" "<<a[j].check_month()<<" "<<a[j].check_day()
 								<<" "<<a[j].check_order()<<" "<<a[j].check_classname()<<" "<<a[j].check_abstype()<<endl;
 						}
-						out.close();				
+						outfile.close();				
 					}
 				}
 				else if(c == 2)
@@ -295,7 +298,7 @@ int main()
 							outfile<<a[j].check_name()<<" "<<a[j].check_id()<<" "<<a[j].check_year()<<" "<<a[j].check_month()<<" "<<a[j].check_day()
 								<<" "<<a[j].check_order()<<" "<<a[j].check_classname()<<" "<<a[j].check_abstype()<<endl;
 						}
-						out.close();				
+						outfile.close();				
 					}
 					
 				}
@@ -430,38 +433,84 @@ int main()
 				in.close();
 				//传入结束 
 				long long id;
+				string n; 
 				cout<<endl;
 				cout<<"/---------------------------------------------------------------------------------------/\n" ;	
-				cout<<"请输入想要查询的学生的学号:\n";
-				cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n"; 
-				cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n";
-				cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n";
+				cout<<"请选择查询方式\n 1/学号		2/姓名:\n";
 				cout<<"/---------------------------------------------------------------------------------------/\n" ;	
-				cin>>id; 
-				for(int j=0;j<=i;j++)
+				int aa;
+				cin>>aa;
+				if(aa == 1)
 				{
-					a[j].search(id); 
-				}
-				cout<<"是否导出该学生的记录1/yes	0/no\n";
-				int c;
-				cin>>c;
-				if(c)
-				{
-					cout<<"保存成功！:)"<<endl;
-					system("pause");
-					ofstream out("个人统计.txt",ios::out);
+					cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n"; 
+					cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n";
+					cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n";
+					cin>>id; 
 					for(int j=0;j<=i;j++)
 					{
-						if(id == a[j].check_id())
-						{
-							out<<a[j].check_name()<<" "
-							<<a[j].check_id()<<" "
-							<<a[j].check_year()<<" "<<a[j].check_month()<<" "<<a[j].check_day()<<" "
-							<<a[j].check_order()<<" "
-							<<a[j].check_abstype()<<endl;
-						} 
+						a[j].search(id); 
 					}
-					out.close();
+					cout<<"是否导出该学生的记录1/yes	\n 0/no\n";
+					int c;
+					cin>>c;
+					if(c)
+					{
+						cout<<"保存成功！:)"<<endl;
+						system("pause");
+						ofstream out("个人统计.txt",ios::out);
+						for(int j=0;j<=i;j++)
+						{
+							if(id == a[j].check_id())
+							{
+								out<<a[j].check_name()<<" "
+								<<a[j].check_id()<<" "
+								<<a[j].check_year()<<" "<<a[j].check_month()<<" "<<a[j].check_day()<<" "
+								<<a[j].check_order()<<" "
+								<<a[j].check_abstype()<<endl;
+							} 
+						}
+						out.close();
+					}
+				}
+				else if(aa == 2)
+				{
+					cout<<"请输入想要搜索的学生姓名\n\n";
+					cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n"; 
+					cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n";
+					cout<<"警告：请勿恶意输入会导致程序崩溃！！！！！\n";
+					cin>>n; //姓名搜索 
+					for(int j=0;j<=i;j++)
+					{
+						if(n == a[j].check_name())
+						{
+							cout<<"姓名: "<<a[j].check_name()<<" "
+							<<"学号: "<<a[j].check_id()<<" "
+							<<"缺课时间: "<<a[j].check_year()<<" "<<a[j].check_month()<<" "<<a[j].check_day()<<" "
+							<<"课时: "<<a[j].check_order()<<" "
+							<<"缺课类型: "<<a[j].check_abstype()<<endl;
+						}
+					}
+					cout<<"是否导出该学生的记录1/yes	0/no\n";
+					int c;
+					cin>>c;
+					if(c)
+					{
+						cout<<"保存成功！:)"<<endl;
+						ofstream out("个人统计.txt",ios::out);
+						for(int j=0;j<=i;j++)
+						{
+							if(n == a[j].check_name())
+							{
+								out<<a[j].check_name()<<" "
+								<<a[j].check_id()<<" "
+								<<a[j].check_year()<<" "<<a[j].check_month()<<" "<<a[j].check_day()<<" "
+								<<a[j].check_order()<<" "
+								<<a[j].check_abstype()<<endl;
+							} 
+						}
+						system("pause");
+						out.close();
+					} 
 				}
 				break;
 			}
