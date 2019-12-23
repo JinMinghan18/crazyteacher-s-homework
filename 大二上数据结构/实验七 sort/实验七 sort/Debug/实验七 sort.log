@@ -1,0 +1,3 @@
+﻿  SortMain.cpp
+f:\mycppspace\c++lff\实验七 排序\sortmain.cpp(53): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  实验七 sort.vcxproj -> F:\Mycppspace\C++lff\实验七 sort\Debug\实验七 sort.exe
